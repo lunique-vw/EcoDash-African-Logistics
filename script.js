@@ -6,6 +6,7 @@ let score=0;
 let distanceTravelled=0;
 let rainDrops=[];
 let raining=true;
+let wind=0.3;
 let gameStarted=false;
 let gamePaused=false;
 let gameOver=false;
@@ -31,7 +32,7 @@ class Drone{
         if(moving){
             const velocityX=Math.cos(this.angle)*this.speed;
             const velocityY=Math.sin(this.angle)*this.speed;
-            this.x+=velocityX;this.y+=velocityY;
+            this.x+=velocityX+wind;this.y+=velocityY;
             battery-=0.03;
             distanceTravelled+=this.speed*0.01;
         }else this.speed*=0.9;
@@ -129,6 +130,9 @@ function drawEnvironment(){
     ctx.font="14px Arial";
     ctx.fillText("SOLAR STATION",35,410);
     ctx.fillText("VILLAGE",690,430);
+    ctx.fillStyle="black";
+    ctx.font="14px Arial";
+    ctx.fillText("Wind →",20,30);
 }
 
 function drawRain(){
