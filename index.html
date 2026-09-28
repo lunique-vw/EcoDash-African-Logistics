@@ -1,12 +1,14 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <title>
             EcoDash
         </title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -16,10 +18,37 @@
         <p>African Digital Logistics & Infrastructure Simulator</p>
     </header>
 
+    <div class="game-info">
+
+        <div class="info-box">
+            Battery: <span id="battery">100%</span>
+        </div>
+
+        <div class="info-box">
+            Score: <span id="score">0</span>
+        </div>
+
+        <div class="info-box">
+            Distance: <span id="distance">0</span>
+        </div>
+
+    </div>
+
     <main>
+
         <canvas id="gameCanvas" width="800" height="500"></canvas>
+
+        <div class="controls">
+            <button onclick="startGame()">Start</button>
+            <button onclick="pauseGame()">Pause</button>
+            <button onclick="restartGame()">Restart</button>
+        </div>
+
     </main>
-    
+
     <script src="script.js"></script>
+
 </body>
-</html> 
+
+</html>
+```
