@@ -1,3 +1,4 @@
+```css
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -8,19 +9,36 @@ body {
 header {
     background-color: #2e7d32;
     color: white;
-    padding: 20px;
+    padding: 15px;
 }
 
 header h1 {
     margin: 0;
+    font-size: 32px;
 }
 
 header p {
-    margin: 8px 0 0;
+    margin: 5px 0 0;
+}
+
+.game-info {
+    width: 800px;
+    margin: 15px auto 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid #2e7d32;
+    border-radius: 8px;
+}
+
+.info-box {
+    font-weight: bold;
 }
 
 main {
-    padding: 30px;
+    padding: 15px;
 }
 
 canvas {
@@ -28,4 +46,24 @@ canvas {
     border: 3px solid #333;
     display: block;
     margin: 0 auto;
+    border-radius: 8px;
 }
+
+.controls {
+    margin-top: 15px;
+}
+
+button {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1b5e20;
+}
+```
