@@ -176,6 +176,7 @@ function updateHUD(){
     document.getElementById("battery").textContent=Math.round(battery)+"%";
     document.getElementById("score").textContent=score;
     document.getElementById("distance").textContent=distanceTravelled.toFixed(1);
+    document.getElementById("efficiency").textContent=efficiency.toFixed(2);
 }
 
 function startGame(){
