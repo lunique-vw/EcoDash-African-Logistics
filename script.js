@@ -148,6 +148,13 @@ function drawRain(){
     });
 }
 
+function rainEffect(){
+    if(raining){
+        ctx.fillStyle="rgba(80,100,120,0.18)";
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+    }
+}
+
 function updateHUD(){
     document.getElementById("battery").textContent=Math.round(battery)+"%";
     document.getElementById("score").textContent=score;
@@ -255,6 +262,7 @@ function gameLoop(){
 
     drone.draw();
     drawRain();
+    rainEffect();
     updateHUD();
     drawGameState();
     requestAnimationFrame(gameLoop);
