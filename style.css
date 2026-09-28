@@ -1,67 +1,78 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #e8f5e9;
-    text-align: center;
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background-color:#e8f5e9;
+    text-align:center;
 }
 
-header {
-    background-color: #2e7d32;
-    color: white;
-    padding: 15px;
+header{
+    background-color:#2e7d32;
+    color:white;
+    padding:15px;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 32px;
+header h1{
+    margin:0;
+    font-size:32px;
 }
 
-header p {
-    margin: 5px 0 0;
+header p{
+    margin:5px 0 0;
 }
 
-.game-info {
-    width: 800px;
-    margin: 15px auto 0;
-    display: flex;
-    justify-content: space-between;
-    background-color: #ffffff;
-    padding: 10px;
-    box-sizing: border-box;
-    border: 2px solid #2e7d32;
-    border-radius: 8px;
+.game-info{
+    width:800px;
+    margin:15px auto 0;
+    display:flex;
+    justify-content:space-between;
+    background-color:#ffffff;
+    padding:10px;
+    box-sizing:border-box;
+    border:2px solid #2e7d32;
+    border-radius:8px;
 }
 
-.info-box {
-    font-weight: bold;
+.info-box{
+    font-weight:bold;
 }
 
-main {
-    padding: 15px;
+main{
+    padding:15px;
 }
 
-canvas {
-    background-color: #87ceeb;
-    border: 3px solid #333;
-    display: block;
-    margin: 0 auto;
-    border-radius: 8px;
+canvas{
+    background-color:#87ceeb;
+    border:3px solid #333;
+    display:block;
+    margin:0 auto;
+    border-radius:8px;
 }
 
-.controls {
-    margin-top: 15px;
+.controls{
+    margin-top:15px;
 }
 
-button {
-    background-color: #2e7d32;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-    cursor: pointer;
+button{
+    background-color:#2e7d32;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    margin:5px;
+    border-radius:5px;
+    cursor:pointer;
 }
 
-button:hover {
-    background-color: #1b5e20;
+button:hover{
+    background-color:#1b5e20;
+}
+
+@media(max-width:850px){
+    .game-info{
+        width:95%;
+    }
+
+    canvas{
+        width:95%;
+        height:auto;
+    }
 }
