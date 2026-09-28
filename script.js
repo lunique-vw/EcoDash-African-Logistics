@@ -9,6 +9,7 @@ let raining=true;
 let gameStarted=false;
 let gamePaused=false;
 let gameOver=false;
+let delivered=false;
 let highScore=Number(localStorage.getItem("ecoDashHighScore"))||0;
 
 for(let i=0;i<60;i++){
@@ -173,6 +174,7 @@ function restartGame(){
     gameStarted=true;
     gamePaused=false;
     gameOver=false;
+    delivered=false;
 }
 
 function saveScore(){
@@ -202,6 +204,17 @@ function drawGameState(){
         ctx.fillText("PAUSED",345,240);
     }
 
+    if(delivered){
+        ctx.fillStyle="rgba(0,0,0,0.7)";
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+        ctx.fillStyle="white";
+        ctx.font="30px Arial";
+        ctx.fillText("DELIVERY COMPLETE",270,220);
+        ctx.font="18px Arial";
+        ctx.fillText("Score: "+score,350,255);
+        ctx.fillText("Press Restart",335,290);
+    }
+    
     if(gameOver){
         ctx.fillStyle="rgba(0,0,0,0.7)";
         ctx.fillRect(0,0,canvas.width,canvas.height);
@@ -228,9 +241,10 @@ function gameLoop(){
     drawEnvironment();
     obstacles.forEach(function(obstacle){obstacle.draw();});
 
-    if(gameStarted&&!gamePaused&&!gameOver){
+    if(gameStarted&&!gamePaused&&!gameOver&&!delivered){
         drone.move();
         handleCollisions();
+        checkDelivery();
 
         if(battery<=0){
             battery=0;
@@ -247,4 +261,12 @@ function gameLoop(){
 }
 
 const drone=new Drone(100,200);
+
+function checkDelivery(){
+    if(!delivered&&drone.x<760&&drone.x+drone.width>680&&drone.y<410&&drone.y+drone.height>350){
+        delivered=true;
+        score+=100;
+        saveScore();
+    }
+}
 gameLoop();
