@@ -21,8 +21,8 @@ Run the Project
 3. Open index.html in a web browser
 4. Simulation will run
 
-Status
-EcoDash is still being developed.
+AI Usage Disclosure
+ChatGPT was used to help with explanations, troubleshooting, coding ideas and improving the EcoDash simulation.
 
 Author
 Lunique Van West - 25301771
