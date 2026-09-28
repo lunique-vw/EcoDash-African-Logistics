@@ -4,6 +4,7 @@ const keys={};
 let battery=100;
 let score=0;
 let distanceTravelled=0;
+let efficiency=0;
 let rainDrops=[];
 let raining=true;
 let wind=0.3;
@@ -170,6 +171,8 @@ function rainEffect(){
 }
 
 function updateHUD(){
+    let energyUsed=100-battery;
+    efficiency=energyUsed>0?distanceTravelled/energyUsed:0;
     document.getElementById("battery").textContent=Math.round(battery)+"%";
     document.getElementById("score").textContent=score;
     document.getElementById("distance").textContent=distanceTravelled.toFixed(1);
