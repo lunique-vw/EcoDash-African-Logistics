@@ -7,6 +7,8 @@ let distanceTravelled=0;
 let rainDrops=[];
 let raining=true;
 let wind=0.3;
+let loadShedding=false;
+let loadSheddingTimer=0;
 let gameStarted=false;
 let gamePaused=false;
 let gameOver=false;
@@ -40,6 +42,11 @@ class Drone{
         if(this.x+this.width>canvas.width)this.x=canvas.width-this.width;
         if(this.y<0)this.y=0;
         if(this.y+this.height>canvas.height)this.y=canvas.height-this.height;
+        if(this.x<110&&this.x>20&&this.y>340&&this.y<400&&!loadShedding){
+            battery+=0.1;
+            if(battery>100)battery=100;
+        }
+        
         if(battery<0)battery=0;
     }
     draw(){
@@ -133,6 +140,9 @@ function drawEnvironment(){
     ctx.fillStyle="black";
     ctx.font="14px Arial";
     ctx.fillText("Wind →",20,30);
+    ctx.fillStyle="black";
+    ctx.font="14px Arial";
+    ctx.fillText(loadShedding?"LOAD-SHEDDING ON":"POWER AVAILABLE",20,50);
 }
 
 function drawRain(){
@@ -253,6 +263,12 @@ function gameLoop(){
     obstacles.forEach(function(obstacle){obstacle.draw();});
 
     if(gameStarted&&!gamePaused&&!gameOver&&!delivered){
+        loadSheddingTimer++;
+        if(loadSheddingTimer>600){
+            loadShedding=!loadShedding;
+            loadSheddingTimer=0;
+        }
+        
         drone.move();
         handleCollisions();
         checkDelivery();
